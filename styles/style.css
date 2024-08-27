@@ -22,6 +22,9 @@ header {
     height: auto; /* Mantiene la relación de aspecto del logo */
     border-radius: 50%;
 }
+.link-home a{
+    text-decoration: underline;
+  }
 
 .principal {
     margin: 10px 0; /* Espaciado arriba y abajo del título */
