@@ -1,0 +1,80 @@
+/*Media query para pantallas de tabletas (768px y menos) */
+@media (max-width: 768px) {
+    .logo {
+        width: 30%; /* Ajusta el tamaño del logo en pantallas más pequeñas */
+    }
+
+    nav {
+        margin-top: 10px; /* Ajusta el espaciado superior */
+        flex-direction: column; /* Organiza los enlaces en columna */
+    }
+
+    nav a {
+        margin: 10px 0; /* Espaciado vertical entre los enlaces */
+        font-size: 1.5rem; /* Ajusta el tamaño de la fuente */
+    }
+
+    .carta img, .presentacion img {
+        width: 80%; /* Ajusta el tamaño de las imágenes para pantallas más pequeñas */
+    }
+
+    .presentacion, .carta, .reserva {
+        padding: 10px; /* Reduce el padding */
+    }
+
+    h2 {
+        font-size: 1.5rem; /* Ajusta el tamaño de fuente de los títulos */
+    }
+
+    h3 {
+        font-size: 0.9rem; /* Ajusta el tamaño de fuente de los subtítulos */
+    }
+
+    p, label {
+        font-size: 1rem; /* Ajusta el tamaño de fuente del texto */
+    }
+}
+
+  /*Media query para móviles en orientación vertical (480px y menos) */
+@media (max-width: 480px) {
+    header {
+        flex-direction: column; /* Cambia la dirección del flex a columna para móviles */
+        align-items: center; /* Centra el contenido horizontalmente */
+        padding: 5px; /* Reduce el padding */
+    }
+
+    .logo {
+        width: 50%; /* Ajusta el tamaño del logo en pantallas muy pequeñas */
+    }
+
+    nav {
+        margin-top: 10px;
+        flex-direction: column; /* Asegura que los enlaces estén en columna */
+        align-items: center; /* Centra los enlaces */
+    }
+
+    nav a {
+        font-size: 1.2rem; /* Ajusta el tamaño de la fuente de los enlaces */
+        margin: 10px 0; /* Espaciado vertical entre los enlaces */
+    }
+
+    .carta img, .presentacion img {
+        width: 90%; /* Ajusta el tamaño de las imágenes para pantallas muy pequeñas */
+    }
+
+    h2 {
+        font-size: 1.2rem; /* Ajusta el tamaño de fuente de los títulos */
+    }
+
+    h3 {
+        font-size: 0.8rem; /* Ajusta el tamaño de fuente de los subtítulos */
+    }
+
+    p, label {
+        font-size: 0.9rem; /* Ajusta el tamaño de fuente del texto */
+    }
+
+    footer iframe {
+        width: 100%; /* Asegura que el iframe se ajuste al contenedor */
+    }
+}

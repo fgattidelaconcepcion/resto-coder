@@ -1,0 +1,107 @@
+/* Estilos para el main */
+
+.title-one{
+    margin: 20px;
+}
+.title-two{
+    font-size: 25px;
+    margin: 20px;
+}
+.title-three{
+ margin: 20px;
+ font-size: 25px;
+}
+input{
+    font-size: 15px;
+}
+.reserva a{
+    padding: 20px;
+}
+
+.presentacion {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    text-align: center; 
+    padding: 20px; 
+    justify-content: center;
+    flex-wrap: wrap;
+    object-fit: cover; /*Reescala la imagen, para que se vea mejor*/
+}
+
+.carta{
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
+    padding: 20px; 
+    object-fit: cover;
+    
+}
+.carta img{
+    width: 50%; 
+    height: auto; 
+    margin: 40px 0;
+
+}
+ 
+.reserva {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
+    padding: 20px; 
+
+}
+
+.presentacion img {
+    width: 30%; 
+    height: auto; 
+    margin: 20px 0; 
+}
+
+.presentacion h2 {
+    margin: 20px 0; 
+}
+
+.presentacion a {
+    text-decoration: none; 
+    color: #FFF; 
+    font-weight: bold; 
+    margin-top: 20px; 
+    display: inline-block; 
+}
+
+
+h1{
+    color:#fff;
+    font-family: "Kanit", sans-serif;
+}
+.principal{
+    text-transform: uppercase;
+}
+h2{
+    color:#fff;
+    font-size: 2rem;
+}
+h3{
+    color:#fff;
+    font-size: 1rem;
+}
+
+p{
+    font-family: "Oswald", sans-serif;
+    font-size: 1.5rem;
+    color: #fff;
+}
+a{
+    font-weight: bolder;
+    font-size: 2rem;
+    color: 	#FFF;
+    text-decoration: none;
+}
+
+ a:hover {
+    color: #0056b3; /* Al pasar el mouse por el link se vera de color azul*/
+}

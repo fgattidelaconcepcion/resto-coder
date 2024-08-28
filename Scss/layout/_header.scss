@@ -1,0 +1,42 @@
+/* Estilos para el header */
+* {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+
+header {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column; /* Organiza los elementos en una columna */
+    align-items: center; /* Centra el contenido horizontalmente */
+    justify-content: space-between; /* Centra el contenido verticalmente */
+    text-align: center; /* Centra el texto en los elementos */
+    padding: 10px; /* Ajusta el espacio alrededor del contenido si es necesario */
+    
+}
+
+.logo {
+    width: 10%; /* Ajusta el tamaño del logo */
+    height: auto; /* Mantiene la relación de aspecto del logo */
+    border-radius: 50%;
+}
+.link-home a{
+    text-decoration: underline;
+  }
+
+.principal {
+    margin: 10px 0; /* Espaciado arriba y abajo del título */
+}
+
+nav {
+    margin-top: 20px; /* Espaciado superior para los enlaces de navegación */
+}
+
+nav a {
+    text-decoration: none; /* Quita el subrayado de los enlaces */
+    color:#FFF; /* Color de texto de los enlaces */
+    margin: 0 15px; /* Espaciado horizontal entre los enlaces */
+    font-weight: bold; /* Opcional: hace que el texto de los enlaces sea en negrita */
+}

@@ -1,3 +1,271 @@
+@charset "UTF-8";
+/* Estilos para el header */
+* {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
 
+header {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column; /* Organiza los elementos en una columna */
+  align-items: center; /* Centra el contenido horizontalmente */
+  justify-content: space-between; /* Centra el contenido verticalmente */
+  text-align: center; /* Centra el texto en los elementos */
+  padding: 10px; /* Ajusta el espacio alrededor del contenido si es necesario */
+}
+
+.logo {
+  width: 10%; /* Ajusta el tamaño del logo */
+  height: auto; /* Mantiene la relación de aspecto del logo */
+  border-radius: 50%;
+}
+
+.link-home a {
+  text-decoration: underline;
+}
+
+.principal {
+  margin: 10px 0; /* Espaciado arriba y abajo del título */
+}
+
+nav {
+  margin-top: 20px; /* Espaciado superior para los enlaces de navegación */
+}
+
+nav a {
+  text-decoration: none; /* Quita el subrayado de los enlaces */
+  color: #FFF; /* Color de texto de los enlaces */
+  margin: 0 15px; /* Espaciado horizontal entre los enlaces */
+  font-weight: bold; /* Opcional: hace que el texto de los enlaces sea en negrita */
+}
+
+/* Estilos para el main */
+.title-one {
+  margin: 20px;
+}
+
+.title-two {
+  font-size: 25px;
+  margin: 20px;
+}
+
+.title-three {
+  margin: 20px;
+  font-size: 25px;
+}
+
+input {
+  font-size: 15px;
+}
+
+.reserva a {
+  padding: 20px;
+}
+
+.presentacion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  object-fit: cover; /*Reescala la imagen, para que se vea mejor*/
+}
+
+.carta {
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  object-fit: cover;
+}
+
+.carta img {
+  width: 50%;
+  height: auto;
+  margin: 40px 0;
+}
+
+.reserva {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.presentacion img {
+  width: 30%;
+  height: auto;
+  margin: 20px 0;
+}
+
+.presentacion h2 {
+  margin: 20px 0;
+}
+
+.presentacion a {
+  text-decoration: none;
+  color: #FFF;
+  font-weight: bold;
+  margin-top: 20px;
+  display: inline-block;
+}
+
+h1 {
+  color: #fff;
+  font-family: "Kanit", sans-serif;
+}
+
+.principal {
+  text-transform: uppercase;
+}
+
+h2 {
+  color: #fff;
+  font-size: 2rem;
+}
+
+h3 {
+  color: #fff;
+  font-size: 1rem;
+}
+
+p {
+  font-family: "Oswald", sans-serif;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+a {
+  font-weight: bolder;
+  font-size: 2rem;
+  color: #FFF;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #0056b3; /* Al pasar el mouse por el link se vera de color azul*/
+}
+
+/* Estilos para el footer */
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 5px;
+  color: #fff;
+}
+
+footer h3 {
+  margin: 10px 0;
+  color: #FFF;
+}
+
+footer p {
+  margin: 10px 0;
+  font-size: 1.5rem;
+}
+
+footer iframe {
+  margin: 20px 0;
+  border: 0;
+  width: 100%;
+  max-width: 300px;
+  height: 100px;
+}
+
+footer a {
+  text-decoration: none;
+  color: #FFF;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+label {
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+body {
+  background-image: url(../img/fondoimg.jpg);
+  width: 100%;
+  height: 100vh;
+  background-position: 10%;
+  background-attachment: fixed;
+  position: relative;
+}
+
+/*Media query para pantallas de tabletas (768px y menos) */
+@media (max-width: 768px) {
+  .logo {
+    width: 30%; /* Ajusta el tamaño del logo en pantallas más pequeñas */
+  }
+  nav {
+    margin-top: 10px; /* Ajusta el espaciado superior */
+    flex-direction: column; /* Organiza los enlaces en columna */
+  }
+  nav a {
+    margin: 10px 0; /* Espaciado vertical entre los enlaces */
+    font-size: 1.5rem; /* Ajusta el tamaño de la fuente */
+  }
+  .carta img, .presentacion img {
+    width: 80%; /* Ajusta el tamaño de las imágenes para pantallas más pequeñas */
+  }
+  .presentacion, .carta, .reserva {
+    padding: 10px; /* Reduce el padding */
+  }
+  h2 {
+    font-size: 1.5rem; /* Ajusta el tamaño de fuente de los títulos */
+  }
+  h3 {
+    font-size: 0.9rem; /* Ajusta el tamaño de fuente de los subtítulos */
+  }
+  p, label {
+    font-size: 1rem; /* Ajusta el tamaño de fuente del texto */
+  }
+}
+/*Media query para móviles en orientación vertical (480px y menos) */
+@media (max-width: 480px) {
+  header {
+    flex-direction: column; /* Cambia la dirección del flex a columna para móviles */
+    align-items: center; /* Centra el contenido horizontalmente */
+    padding: 5px; /* Reduce el padding */
+  }
+  .logo {
+    width: 50%; /* Ajusta el tamaño del logo en pantallas muy pequeñas */
+  }
+  nav {
+    margin-top: 10px;
+    flex-direction: column; /* Asegura que los enlaces estén en columna */
+    align-items: center; /* Centra los enlaces */
+  }
+  nav a {
+    font-size: 1.2rem; /* Ajusta el tamaño de la fuente de los enlaces */
+    margin: 10px 0; /* Espaciado vertical entre los enlaces */
+  }
+  .carta img, .presentacion img {
+    width: 90%; /* Ajusta el tamaño de las imágenes para pantallas muy pequeñas */
+  }
+  h2 {
+    font-size: 1.2rem; /* Ajusta el tamaño de fuente de los títulos */
+  }
+  h3 {
+    font-size: 0.8rem; /* Ajusta el tamaño de fuente de los subtítulos */
+  }
+  p, label {
+    font-size: 0.9rem; /* Ajusta el tamaño de fuente del texto */
+  }
+  footer iframe {
+    width: 100%; /* Asegura que el iframe se ajuste al contenedor */
+  }
+}
 
 /*# sourceMappingURL=style.css.map */
