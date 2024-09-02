@@ -1,50 +1,79 @@
-/* Estilos para el footer */
-footer {
+// Variables
+$spacing-small: 10px;
+$spacing-medium: 20px;
+$padding-footer: 5px;
+$font-size-footer-p: 1.5rem;
+$font-size-label: 1.5rem;
+$color-primary: #FFF;
+$color-link: $color-primary;
+$max-width-iframe: 300px;
+$height-iframe: 100px;
+$bg-image: url(../img/fondoimg.jpg);
+$bg-position: 10%;
+
+// Mixins
+@mixin center-flex($direction: column, $align-items: center, $text-align: center, $padding: $padding-footer) {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column; 
-    align-items: center; 
-    text-align: center; 
-    padding: 5px; 
-    color: #fff; 
+    flex-direction: $direction;
+    align-items: $align-items;
+    text-align: $text-align;
+    padding: $padding;
 }
 
-footer h3 {
-    margin: 10px 0; 
-    color: #FFF; 
+@mixin footer-link-style {
+    text-decoration: none;
+    color: $color-link;
+    font-weight: bold;
+    margin-top: $spacing-small;
 }
 
-footer p {
-    margin: 10px 0; 
-    font-size: 1.5rem; 
+@mixin footer-text-style($font-size) {
+    margin: $spacing-small 0;
+    font-size: $font-size;
 }
 
-footer iframe {
-    margin: 20px 0; 
-    border: 0; 
-    width: 100%; 
-    max-width: 300px; 
-    height: 100px;
+@mixin iframe-style($max-width, $height) {
+    margin: $spacing-medium 0;
+    border: 0;
+    width: 100%;
+    max-width: $max-width;
+    height: $height;
 }
 
-footer a {
-    text-decoration: none; 
-    color: #FFF; 
-    font-weight: bold; 
-    margin-top: 10px; 
+// Estilos para el footer
+footer {
+    @include center-flex(column, center, center, $padding-footer);
+    color: $color-primary;
+
+    h3 {
+        @include footer-text-style($font-size-footer-p);
+        color: $color-primary;
+    }
+
+    p {
+        @include footer-text-style($font-size-footer-p);
+    }
+
+    iframe {
+        @include iframe-style($max-width-iframe, $height-iframe);
+    }
+
+    a {
+        @include footer-link-style;
+    }
 }
 
-label{
-    color: #fff;
-    font-size: 1.5rem;
+label {
+    color: $color-primary;
+    font-size: $font-size-label;
 }
-
 
 body {
-    background-image: url(../img/fondoimg.jpg);
+    background-image: $bg-image;
     width: 100%;
     height: 100vh;
-    background-position: 10%;
+    background-position: $bg-position;
     background-attachment: fixed;
     position: relative;
 }

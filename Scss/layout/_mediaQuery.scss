@@ -1,80 +1,81 @@
-/*Media query para pantallas de tabletas (768px y menos) */
-@media (max-width: 768px) {
+// Variables
+$logo-width-tablet: 30%;
+$logo-width-mobile: 50%;
+$logo-width-mobile-portrait: 50%; // Para orientación vertical en móviles
+$padding-small: 10px;
+$padding-x-small: 5px;
+$font-size-h2-tablet: 1.5rem;
+$font-size-h3-tablet: 0.9rem;
+$font-size-p-tablet: 1rem;
+$font-size-h2-mobile: 1.2rem;
+$font-size-h3-mobile: 0.8rem;
+$font-size-p-mobile: 0.9rem;
+$font-size-nav-mobile: 1.2rem;
+$font-size-nav-tablet: 1.5rem;
+
+// Mixins
+@mixin responsive-logo($width) {
     .logo {
-        width: 30%; /* Ajusta el tamaño del logo en pantallas más pequeñas */
-    }
-
-    nav {
-        margin-top: 10px; /* Ajusta el espaciado superior */
-        flex-direction: column; /* Organiza los enlaces en columna */
-    }
-
-    nav a {
-        margin: 10px 0; /* Espaciado vertical entre los enlaces */
-        font-size: 1.5rem; /* Ajusta el tamaño de la fuente */
-    }
-
-    .carta img, .presentacion img {
-        width: 80%; /* Ajusta el tamaño de las imágenes para pantallas más pequeñas */
-    }
-
-    .presentacion, .carta, .reserva {
-        padding: 10px; /* Reduce el padding */
-    }
-
-    h2 {
-        font-size: 1.5rem; /* Ajusta el tamaño de fuente de los títulos */
-    }
-
-    h3 {
-        font-size: 0.9rem; /* Ajusta el tamaño de fuente de los subtítulos */
-    }
-
-    p, label {
-        font-size: 1rem; /* Ajusta el tamaño de fuente del texto */
+        width: $width;
     }
 }
 
-  /*Media query para móviles en orientación vertical (480px y menos) */
-@media (max-width: 480px) {
-    header {
-        flex-direction: column; /* Cambia la dirección del flex a columna para móviles */
-        align-items: center; /* Centra el contenido horizontalmente */
-        padding: 5px; /* Reduce el padding */
-    }
-
-    .logo {
-        width: 50%; /* Ajusta el tamaño del logo en pantallas muy pequeñas */
-    }
-
+@mixin responsive-nav($font-size, $margin-top, $flex-direction, $align-items: unset) {
     nav {
-        margin-top: 10px;
-        flex-direction: column; /* Asegura que los enlaces estén en columna */
-        align-items: center; /* Centra los enlaces */
+        margin-top: $margin-top;
+        flex-direction: $flex-direction;
+        @if $align-items != unset {
+            align-items: $align-items;
+        }
     }
 
     nav a {
-        font-size: 1.2rem; /* Ajusta el tamaño de la fuente de los enlaces */
-        margin: 10px 0; /* Espaciado vertical entre los enlaces */
+        font-size: $font-size;
+        margin: 10px 0; // Ajuste vertical entre los enlaces
     }
+}
 
+@mixin responsive-image($width) {
     .carta img, .presentacion img {
-        width: 90%; /* Ajusta el tamaño de las imágenes para pantallas muy pequeñas */
+        width: $width;
     }
+}
 
+@mixin responsive-text($font-size-h2, $font-size-h3, $font-size-p) {
     h2 {
-        font-size: 1.2rem; /* Ajusta el tamaño de fuente de los títulos */
+        font-size: $font-size-h2;
     }
 
     h3 {
-        font-size: 0.8rem; /* Ajusta el tamaño de fuente de los subtítulos */
+        font-size: $font-size-h3;
     }
 
     p, label {
-        font-size: 0.9rem; /* Ajusta el tamaño de fuente del texto */
+        font-size: $font-size-p;
+    }
+}
+
+// Media Queries
+@media (max-width: 768px) {
+    @include responsive-logo($logo-width-tablet);
+    @include responsive-nav($font-size-nav-tablet, $padding-small, column);
+    @include responsive-image(80%);
+    @include responsive-text($font-size-h2-tablet, $font-size-h3-tablet, $font-size-p-tablet);
+}
+
+@media (max-width: 480px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        padding: $padding-x-small;
     }
 
+    @include responsive-logo($logo-width-mobile);
+    @include responsive-nav($font-size-nav-mobile, $padding-small, column, center);
+    @include responsive-image(90%);
+    @include responsive-text($font-size-h2-mobile, $font-size-h3-mobile, $font-size-p-mobile);
+
     footer iframe {
-        width: 100%; /* Asegura que el iframe se ajuste al contenedor */
+        width: 100%;
     }
 }

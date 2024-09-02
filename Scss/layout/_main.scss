@@ -1,107 +1,136 @@
-/* Estilos para el main */
+// Variables
+$spacing: 20px; // Espaciado general
+$font-size-title-one: 25px;
+$font-size-title-two: 25px;
+$font-size-input: 15px;
+$font-size-h1: 2rem;
+$font-size-h2: 2rem;
+$font-size-h3: 1rem;
+$font-size-p: 1.5rem;
+$font-size-link: 2rem;
+$color-primary: #FFF;
+$color-hover: #0056b3;
 
-.title-one{
-    margin: 20px;
+// Mixins
+@mixin spacing($margin) {
+    margin: $margin;
 }
-.title-two{
-    font-size: 25px;
-    margin: 20px;
+
+@mixin title-style($font-size, $margin) {
+    font-size: $font-size;
+    @include spacing($margin);
 }
-.title-three{
- margin: 20px;
- font-size: 25px;
+
+@mixin container-style($padding, $flex-direction, $align-items, $text-align, $justify-content: unset, $flex-wrap: unset, $object-fit: unset) {
+    display: flex;
+    flex-direction: $flex-direction;
+    align-items: $align-items;
+    text-align: $text-align;
+    padding: $padding;
+    @if $justify-content != unset {
+        justify-content: $justify-content;
+    }
+    @if $flex-wrap != unset {
+        flex-wrap: $flex-wrap;
+    }
+    @if $object-fit != unset {
+        object-fit: $object-fit;
+    }
 }
-input{
-    font-size: 15px;
+
+@mixin image-style($width, $margin) {
+    width: $width;
+    height: auto;
+    margin: $margin;
 }
-.reserva a{
-    padding: 20px;
+
+@mixin link-style($color, $font-weight, $font-size, $text-decoration) {
+    color: $color;
+    font-weight: $font-weight;
+    font-size: $font-size;
+    text-decoration: $text-decoration;
+}
+
+// Estilos para el main
+.title-one {
+    @include title-style($font-size-title-one, $spacing);
+}
+
+.title-two {
+    @include title-style($font-size-title-two, $spacing);
+}
+
+.title-three {
+    @include title-style($font-size-title-two, $spacing); // Usamos el mismo tamaño de fuente que title-two
+}
+
+input {
+    font-size: $font-size-input;
+}
+
+.reserva a {
+    padding: $spacing;
 }
 
 .presentacion {
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    text-align: center; 
-    padding: 20px; 
-    justify-content: center;
-    flex-wrap: wrap;
-    object-fit: cover; /*Reescala la imagen, para que se vea mejor*/
+    @include container-style($spacing, column, center, center, wrap, cover);
 }
 
-.carta{
-    flex-wrap: wrap;
-    display: flex;
-    flex-direction: column; 
-    align-items: center; 
-    text-align: center; 
-    padding: 20px; 
-    object-fit: cover;
-    
+.carta {
+    @include container-style($spacing, column, center, center, wrap, cover);
 }
-.carta img{
-    width: 50%; 
-    height: auto; 
-    margin: 40px 0;
 
+.carta img {
+    @include image-style(50%, 40px 0);
 }
- 
+
 .reserva {
-    display: flex;
-    flex-direction: column; 
-    align-items: center; 
-    text-align: center; 
-    padding: 20px; 
-
+    @include container-style($spacing, column, center, center);
 }
 
 .presentacion img {
-    width: 30%; 
-    height: auto; 
-    margin: 20px 0; 
+    @include image-style(30%, 20px 0);
 }
 
 .presentacion h2 {
-    margin: 20px 0; 
+    @include spacing($spacing);
 }
 
 .presentacion a {
-    text-decoration: none; 
-    color: #FFF; 
-    font-weight: bold; 
-    margin-top: 20px; 
-    display: inline-block; 
+    @include link-style($color-primary, bold, unset, none);
+    margin-top: $spacing;
+    display: inline-block;
 }
 
-
-h1{
-    color:#fff;
+h1 {
+    color: $color-primary;
     font-family: "Kanit", sans-serif;
 }
-.principal{
+
+.principal {
     text-transform: uppercase;
 }
-h2{
-    color:#fff;
-    font-size: 2rem;
-}
-h3{
-    color:#fff;
-    font-size: 1rem;
+
+h2 {
+    color: $color-primary;
+    font-size: $font-size-h2;
 }
 
-p{
+h3 {
+    color: $color-primary;
+    font-size: $font-size-h3;
+}
+
+p {
     font-family: "Oswald", sans-serif;
-    font-size: 1.5rem;
-    color: #fff;
-}
-a{
-    font-weight: bolder;
-    font-size: 2rem;
-    color: 	#FFF;
-    text-decoration: none;
+    font-size: $font-size-p;
+    color: $color-primary;
 }
 
- a:hover {
-    color: #0056b3; /* Al pasar el mouse por el link se vera de color azul*/
+a {
+    @include link-style($color-primary, bolder, $font-size-link, none);
+}
+
+a:hover {
+    color: $color-hover;
 }
