@@ -11,50 +11,57 @@ $font-size-link: 2rem;
 $color-primary: #FFF;
 $color-hover: #0056b3;
 
-// Placeholder Selectors
-%spacing {
-    margin: $spacing;
+// Mixins
+@mixin spacing($margin) {
+    margin: $margin;
 }
 
-%title-style {
-    font-size: $font-size-title-one;
-    @extend %spacing;
+@mixin title-style($font-size, $margin) {
+    font-size: $font-size;
+    @include spacing($margin);
 }
 
-%container-style {
+@mixin container-style($padding, $flex-direction, $align-items, $text-align, $justify-content: unset, $flex-wrap: unset, $object-fit: unset) {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: $spacing;
-    flex-wrap: wrap;
-    object-fit: cover;
+    flex-direction: $flex-direction;
+    align-items: $align-items;
+    text-align: $text-align;
+    padding: $padding;
+    @if $justify-content != unset {
+        justify-content: $justify-content;
+    }
+    @if $flex-wrap != unset {
+        flex-wrap: $flex-wrap;
+    }
+    @if $object-fit != unset {
+        object-fit: $object-fit;
+    }
 }
 
-%image-style {
-    width: 50%;
+@mixin image-style($width, $margin) {
+    width: $width;
     height: auto;
-    margin: 40px 0;
+    margin: $margin;
 }
 
-%link-style {
-    color: $color-primary;
-    font-weight: bold;
-    font-size: $font-size-link;
-    text-decoration: none;
+@mixin link-style($color, $font-weight, $font-size, $text-decoration) {
+    color: $color;
+    font-weight: $font-weight;
+    font-size: $font-size;
+    text-decoration: $text-decoration;
 }
 
 // Estilos para el main
 .title-one {
-    @extend %title-style;
+    @include title-style($font-size-title-one, $spacing);
 }
 
 .title-two {
-    @extend %title-style;
+    @include title-style($font-size-title-two, $spacing);
 }
 
 .title-three {
-    @extend %title-style;
+    @include title-style($font-size-title-two, $spacing); // Usamos el mismo tamaño de fuente que title-two
 }
 
 input {
@@ -66,35 +73,31 @@ input {
 }
 
 .presentacion {
-    @extend %container-style;
+    @include container-style($spacing, column, center, center, wrap, cover);
 }
 
 .carta {
-    @extend %container-style;
+    @include container-style($spacing, column, center, center, wrap, cover);
 }
 
 .carta img {
-    @extend %image-style;
-    width: 50%;
-    margin: 40px 0;
+    @include image-style(50%, 40px 0);
 }
 
 .reserva {
-    @extend %container-style;
+    @include container-style($spacing, column, center, center);
 }
 
 .presentacion img {
-    @extend %image-style;
-    width: 30%;
-    margin: 20px 0;
+    @include image-style(30%, 20px 0);
 }
 
 .presentacion h2 {
-    @extend %spacing;
+    @include spacing($spacing);
 }
 
 .presentacion a {
-    @extend %link-style;
+    @include link-style($color-primary, bold, unset, none);
     margin-top: $spacing;
     display: inline-block;
 }
@@ -125,8 +128,7 @@ p {
 }
 
 a {
-    @extend %link-style;
-    font-weight: bolder;
+    @include link-style($color-primary, bolder, $font-size-link, none);
 }
 
 a:hover {

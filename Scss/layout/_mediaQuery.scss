@@ -7,48 +7,21 @@ $padding-x-small: 5px;
 $font-size-h2-tablet: 1.5rem;
 $font-size-h3-tablet: 0.9rem;
 $font-size-p-tablet: 1rem;
-$font-size-h2-mobile: 1.2rem; 
+$font-size-h2-mobile: 1.2rem;
 $font-size-h3-mobile: 0.8rem;
 $font-size-p-mobile: 0.9rem;
 $font-size-nav-mobile: 1.2rem;
 $font-size-nav-tablet: 1.5rem;
 
-// Placeholder Selectors
-%logo-common {
-    width: 10%;
-    height: auto;
-    border-radius: 50%;
-}
-
-%nav-common {
-    margin-top: $padding-small;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-%image-common {
-    width: 50%;
-    height: auto;
-}
-
-%text-common {
-    h2, h3, p, label {
-        color: $color-primary;
-    }
-}
-
 // Mixins
 @mixin responsive-logo($width) {
     .logo {
-        @extend %logo-common;
         width: $width;
     }
 }
 
 @mixin responsive-nav($font-size, $margin-top, $flex-direction, $align-items: unset) {
     nav {
-        @extend %nav-common;
         margin-top: $margin-top;
         flex-direction: $flex-direction;
         @if $align-items != unset {
@@ -64,7 +37,6 @@ $font-size-nav-tablet: 1.5rem;
 
 @mixin responsive-image($width) {
     .carta img, .presentacion img {
-        @extend %image-common;
         width: $width;
     }
 }

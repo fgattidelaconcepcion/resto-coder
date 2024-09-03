@@ -11,52 +11,56 @@ $height-iframe: 100px;
 $bg-image: url(../img/fondoimg.jpg);
 $bg-position: 10%;
 
-// Placeholder Selectors
-%center-flex {
+// Mixins
+@mixin center-flex($direction: column, $align-items: center, $text-align: center, $padding: $padding-footer) {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: $padding-footer;
+    flex-direction: $direction;
+    align-items: $align-items;
+    text-align: $text-align;
+    padding: $padding;
 }
 
-%footer-link-style {
+@mixin footer-link-style {
     text-decoration: none;
     color: $color-link;
     font-weight: bold;
     margin-top: $spacing-small;
 }
 
-%footer-text-style {
+@mixin footer-text-style($font-size) {
     margin: $spacing-small 0;
-    font-size: $font-size-footer-p;
+    font-size: $font-size;
 }
 
-%iframe-style {
+@mixin iframe-style($max-width, $height) {
     margin: $spacing-medium 0;
     border: 0;
     width: 100%;
-    max-width: $max-width-iframe;
-    height: $height-iframe;
+    max-width: $max-width;
+    height: $height;
 }
 
 // Estilos para el footer
 footer {
-    @extend %center-flex;
+    @include center-flex(column, center, center, $padding-footer);
     color: $color-primary;
 
-    h3, p {
-        @extend %footer-text-style;
+    h3 {
+        @include footer-text-style($font-size-footer-p);
         color: $color-primary;
     }
 
+    p {
+        @include footer-text-style($font-size-footer-p);
+    }
+
     iframe {
-        @extend %iframe-style;
+        @include iframe-style($max-width-iframe, $height-iframe);
     }
 
     a {
-        @extend %footer-link-style;
+        @include footer-link-style;
     }
 }
 
