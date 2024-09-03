@@ -11,56 +11,52 @@ $height-iframe: 100px;
 $bg-image: url(../img/fondoimg.jpg);
 $bg-position: 10%;
 
-// Mixins
-@mixin center-flex($direction: column, $align-items: center, $text-align: center, $padding: $padding-footer) {
+// Placeholder Selectors
+%center-flex {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: $direction;
-    align-items: $align-items;
-    text-align: $text-align;
-    padding: $padding;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: $padding-footer;
 }
 
-@mixin footer-link-style {
+%footer-link-style {
     text-decoration: none;
     color: $color-link;
     font-weight: bold;
     margin-top: $spacing-small;
 }
 
-@mixin footer-text-style($font-size) {
+%footer-text-style {
     margin: $spacing-small 0;
-    font-size: $font-size;
+    font-size: $font-size-footer-p;
 }
 
-@mixin iframe-style($max-width, $height) {
+%iframe-style {
     margin: $spacing-medium 0;
     border: 0;
     width: 100%;
-    max-width: $max-width;
-    height: $height;
+    max-width: $max-width-iframe;
+    height: $height-iframe;
 }
 
 // Estilos para el footer
 footer {
-    @include center-flex(column, center, center, $padding-footer);
+    @extend %center-flex;
     color: $color-primary;
 
-    h3 {
-        @include footer-text-style($font-size-footer-p);
+    h3, p {
+        @extend %footer-text-style;
         color: $color-primary;
     }
 
-    p {
-        @include footer-text-style($font-size-footer-p);
-    }
-
     iframe {
-        @include iframe-style($max-width-iframe, $height-iframe);
+        @extend %iframe-style;
     }
 
     a {
-        @include footer-link-style;
+        @extend %footer-link-style;
     }
 }
 
