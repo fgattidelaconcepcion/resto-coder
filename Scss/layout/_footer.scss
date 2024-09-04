@@ -11,19 +11,6 @@ $height-iframe: 100px;
 $bg-image: url(../img/fondoimg.jpg);
 $bg-position: 10%;
 
-// Variables
-$spacing-small: 10px;
-$spacing-medium: 20px;
-$padding-footer: 5px;
-$font-size-footer-p: 1.5rem;
-$font-size-label: 1.5rem;
-$color-primary: #FFF;
-$color-link: $color-primary;
-$max-width-iframe: 300px;
-$height-iframe: 100px;
-$bg-image: url(../img/fondoimg.jpg);
-$bg-position: 10%;
-
 // Mixins
 @mixin center-flex($direction: column, $align-items: center, $text-align: center, $padding: $padding-footer) {
     display: flex;
