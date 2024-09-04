@@ -28,21 +28,28 @@ $nav-spacing: 20px; // Espaciado específico para la navegación
     scroll-behavior: smooth;
 }
 
-// Header
-header {
+// Estilos compartidos
+%centered-content {
     @include center-content;
 }
 
-// Logo
-.logo {
-    width: 10%;
-    height: auto;
-    border-radius: 50%;
+%link-common {
+    @include link-style;
 }
 
-// Enlaces de inicio
-.link-home a {
-    text-decoration: underline;
+// Header
+header {
+    @extend %centered-content;
+
+    .logo {
+        width: 10%;
+        height: auto;
+        border-radius: 50%;
+    }
+
+    .link-home a {
+        text-decoration: underline;
+    }
 }
 
 // Título principal
@@ -53,9 +60,9 @@ header {
 // Navegación
 nav {
     margin-top: $nav-spacing;
-}
 
-nav a {
-    @include link-style;
-    margin: 0 15px;
+    a {
+        @extend %link-common;
+        margin: 0 15px;
+    }
 }

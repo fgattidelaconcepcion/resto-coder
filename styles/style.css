@@ -14,13 +14,18 @@ header {
   padding: 10px;
 }
 
-.logo {
+nav a {
+  text-decoration: none;
+  color: #FFF;
+  font-weight: bold;
+}
+
+header .logo {
   width: 10%;
   height: auto;
   border-radius: 50%;
 }
-
-.link-home a {
+header .link-home a {
   text-decoration: underline;
 }
 
@@ -31,34 +36,43 @@ header {
 nav {
   margin-top: 20px;
 }
-
 nav a {
-  text-decoration: none;
-  color: #FFF;
-  font-weight: bold;
   margin: 0 15px;
+}
+
+.title-three, .title-two, .title-one {
+  font-size: 25px;
+  margin: 20px;
+}
+
+a, .presentacion a {
+  color: #FFF;
+  font-weight: bolder;
+  font-size: 2rem;
+  text-decoration: none;
 }
 
 .title-one {
   font-size: 25px;
-  margin: 20px;
 }
 
 .title-two {
   font-size: 25px;
-  margin: 20px;
 }
 
 .title-three {
   font-size: 25px;
-  margin: 20px;
 }
 
 input {
   font-size: 15px;
 }
 
-.reserva a {
+.reserva {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
   padding: 20px;
 }
 
@@ -71,6 +85,18 @@ input {
   justify-content: wrap;
   flex-wrap: cover;
 }
+.presentacion img {
+  width: 30%;
+  height: auto;
+  margin: 20px 0;
+}
+.presentacion h2 {
+  margin: 20px;
+}
+.presentacion a {
+  margin-top: 20px;
+  display: inline-block;
+}
 
 .carta {
   display: flex;
@@ -81,38 +107,18 @@ input {
   justify-content: wrap;
   flex-wrap: cover;
 }
-
 .carta img {
   width: 50%;
   height: auto;
   margin: 40px 0;
 }
 
-.reserva {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 20px;
-}
-
-.presentacion img {
-  width: 30%;
-  height: auto;
-  margin: 20px 0;
-}
-
-.presentacion h2 {
-  margin: 20px;
-}
-
-.presentacion a {
+.reserva a {
   color: #FFF;
   font-weight: bold;
   font-size: unset;
   text-decoration: none;
-  margin-top: 20px;
-  display: inline-block;
+  padding: 20px;
 }
 
 h1 {
@@ -140,15 +146,21 @@ p {
   color: #FFF;
 }
 
-a {
-  color: #FFF;
-  font-weight: bolder;
-  font-size: 2rem;
-  text-decoration: none;
-}
-
 a:hover {
   color: #0056b3;
+}
+
+footer p, footer h3 {
+  margin: 10px 0;
+  font-size: 1.5rem;
+  color: #FFF;
+}
+
+footer a {
+  text-decoration: none;
+  color: #FFF;
+  font-weight: bold;
+  margin-top: 10px;
 }
 
 footer {
@@ -160,15 +172,6 @@ footer {
   padding: 5px;
   color: #FFF;
 }
-footer h3 {
-  margin: 10px 0;
-  font-size: 1.5rem;
-  color: #FFF;
-}
-footer p {
-  margin: 10px 0;
-  font-size: 1.5rem;
-}
 footer iframe {
   margin: 20px 0;
   border: 0;
@@ -176,13 +179,6 @@ footer iframe {
   max-width: 300px;
   height: 100px;
 }
-footer a {
-  text-decoration: none;
-  color: #FFF;
-  font-weight: bold;
-  margin-top: 10px;
-}
-
 label {
   color: #FFF;
   font-size: 1.5rem;

@@ -51,55 +51,68 @@ $color-hover: #0056b3;
     text-decoration: $text-decoration;
 }
 
-// Estilos para el main
-.title-one {
+// Estilos base
+%title-style {
     @include title-style($font-size-title-one, $spacing);
 }
 
+%link-base {
+    @include link-style($color-primary, bolder, $font-size-link, none);
+}
+
+// Estilos para el main
+.title-one {
+    @extend %title-style;
+    font-size: $font-size-title-one;
+}
+
 .title-two {
-    @include title-style($font-size-title-two, $spacing);
+    @extend %title-style;
+    font-size: $font-size-title-two;
 }
 
 .title-three {
-    @include title-style($font-size-title-two, $spacing); // Usamos el mismo tamaño de fuente que title-two
+    @extend %title-style;
+    font-size: $font-size-title-two; // Usamos el mismo tamaño de fuente que title-two
 }
 
 input {
     font-size: $font-size-input;
 }
 
-.reserva a {
-    padding: $spacing;
-}
-
-.presentacion {
-    @include container-style($spacing, column, center, center, wrap, cover);
-}
-
-.carta {
-    @include container-style($spacing, column, center, center, wrap, cover);
-}
-
-.carta img {
-    @include image-style(50%, 40px 0);
-}
-
 .reserva {
     @include container-style($spacing, column, center, center);
 }
 
-.presentacion img {
-    @include image-style(30%, 20px 0);
+.presentacion {
+    @include container-style($spacing, column, center, center, wrap, cover);
+
+    img {
+        @include image-style(30%, 20px 0);
+    }
+
+    h2 {
+        @include spacing($spacing);
+    }
+
+    a {
+        @extend %link-base;
+        margin-top: $spacing;
+        display: inline-block;
+    }
 }
 
-.presentacion h2 {
-    @include spacing($spacing);
+.carta {
+    @include container-style($spacing, column, center, center, wrap, cover);
+
+    img {
+        @include image-style(50%, 40px 0);
+    }
 }
 
-.presentacion a {
+.reserva a {
     @include link-style($color-primary, bold, unset, none);
-    margin-top: $spacing;
-    display: inline-block;
+    padding: $spacing;
 }
 
 h1 {
@@ -128,7 +141,7 @@ p {
 }
 
 a {
-    @include link-style($color-primary, bolder, $font-size-link, none);
+    @extend %link-base;
 }
 
 a:hover {

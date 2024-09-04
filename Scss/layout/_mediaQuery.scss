@@ -1,7 +1,7 @@
 // Variables
 $logo-width-tablet: 30%;
 $logo-width-mobile: 50%;
-$logo-width-mobile-portrait: 50%; // Para orientación vertical en móviles
+$logo-width-mobile-portrait: 50%;
 $padding-small: 10px;
 $padding-x-small: 5px;
 $font-size-h2-tablet: 1.5rem;
@@ -27,11 +27,11 @@ $font-size-nav-tablet: 1.5rem;
         @if $align-items != unset {
             align-items: $align-items;
         }
-    }
-
-    nav a {
-        font-size: $font-size;
-        margin: 10px 0; // Ajuste vertical entre los enlaces
+        
+        a {
+            font-size: $font-size;
+            margin: 10px 0;
+        }
     }
 }
 
