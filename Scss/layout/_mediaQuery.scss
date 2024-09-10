@@ -1,7 +1,7 @@
 // Variables
-$logo-width-tablet: 30%;
-$logo-width-mobile: 50%;
-$logo-width-mobile-portrait: 50%;
+$logo-width-tablet: 60%; // Tamaño incrementado para tabletas
+$logo-width-mobile: 80%; // Tamaño incrementado para móviles
+$logo-width-mobile-portrait: 80%; // Tamaño incrementado para móviles en modo retrato
 $padding-small: 10px;
 $padding-x-small: 5px;
 $font-size-h2-tablet: 1.5rem;
@@ -65,6 +65,7 @@ $font-size-nav-tablet: 1.5rem;
 
 @media (max-width: 480px) {
     header {
+        display: flex;
         flex-direction: column;
         align-items: center;
         padding: $padding-x-small;

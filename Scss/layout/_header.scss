@@ -42,7 +42,13 @@ header {
     @extend %centered-content;
 
     .logo {
-        width: 10%;
+        width: 13%;
+        height: auto;
+        border-radius: 50%;
+    }
+
+    .img-fluid-chef{
+        width: 19%;
         height: auto;
         border-radius: 50%;
     }

@@ -21,7 +21,12 @@ nav a {
 }
 
 header .logo {
-  width: 10%;
+  width: 13%;
+  height: auto;
+  border-radius: 50%;
+}
+header .img-fluid-chef {
+  width: 19%;
   height: auto;
   border-radius: 50%;
 }
@@ -195,7 +200,7 @@ body {
 
 @media (max-width: 768px) {
   .logo {
-    width: 30%;
+    width: 60%;
   }
   nav {
     margin-top: 10px;
@@ -220,12 +225,13 @@ body {
 }
 @media (max-width: 480px) {
   header {
+    display: flex;
     flex-direction: column;
     align-items: center;
     padding: 5px;
   }
   .logo {
-    width: 50%;
+    width: 80%;
   }
   nav {
     margin-top: 10px;
