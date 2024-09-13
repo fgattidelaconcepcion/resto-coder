@@ -198,6 +198,32 @@ body {
   position: relative;
 }
 
+@media (min-width: 1024px) {
+  .logo {
+    width: 40%;
+  }
+  nav {
+    margin-top: 20px;
+    flex-direction: row;
+    align-items: center;
+  }
+  nav a {
+    font-size: 2rem;
+    margin: 10px 20px;
+  }
+  .carta img, .presentacion img {
+    width: 55%;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  h3 {
+    font-size: 1.2rem;
+  }
+  p, label {
+    font-size: 1.1rem;
+  }
+}
 @media (max-width: 768px) {
   .logo {
     width: 60%;
@@ -208,7 +234,7 @@ body {
   }
   nav a {
     font-size: 1.5rem;
-    margin: 10px 0;
+    margin: 10px 20px;
   }
   .carta img, .presentacion img {
     width: 80%;
@@ -240,7 +266,7 @@ body {
   }
   nav a {
     font-size: 1.2rem;
-    margin: 10px 0;
+    margin: 10px 20px;
   }
   .carta img, .presentacion img {
     width: 90%;

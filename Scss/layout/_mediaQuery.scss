@@ -1,4 +1,10 @@
 // Variables
+$logo-width-desktop: 40%; // Tamaño para escritorios grandes
+$padding-medium: 20px;
+$font-size-h2-desktop: 2rem;
+$font-size-h3-desktop: 1.2rem;
+$font-size-p-desktop: 1.1rem;
+$font-size-nav-desktop: 2.0rem;
 $logo-width-tablet: 60%; // Tamaño incrementado para tabletas
 $logo-width-mobile: 80%; // Tamaño incrementado para móviles
 $logo-width-mobile-portrait: 80%; // Tamaño incrementado para móviles en modo retrato
@@ -30,7 +36,7 @@ $font-size-nav-tablet: 1.5rem;
         
         a {
             font-size: $font-size;
-            margin: 10px 0;
+            margin: 10px 20px;
         }
     }
 }
@@ -56,6 +62,14 @@ $font-size-nav-tablet: 1.5rem;
 }
 
 // Media Queries
+
+@media (min-width: 1024px) {
+    @include responsive-logo($logo-width-desktop);
+    @include responsive-nav($font-size-nav-desktop, $padding-medium, row, center);
+    @include responsive-image(55%);
+    @include responsive-text($font-size-h2-desktop, $font-size-h3-desktop, $font-size-p-desktop);
+}
+
 @media (max-width: 768px) {
     @include responsive-logo($logo-width-tablet);
     @include responsive-nav($font-size-nav-tablet, $padding-small, column);
