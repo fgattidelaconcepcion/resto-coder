@@ -38,11 +38,25 @@
     <main class="presentacion" data-aos="fade-down"
     data-aos-easing="linear"
     data-aos-duration="1500">
-            <h2>Nuestros platos</h2>  
-            <img src="img/platosResto.jpg" alt="Algunos de nuestros platos">
-            <h2>Nuestros tragos</h2>
-            <img src="img/tragosResto.jpeg" alt="Algunos de nuestros tragos">
-    </main>
+    <div class="card custom-card" style="width: 45rem;">
+        <img src="img/platosResto.jpg" class="card-img-top" alt="Platos del restaurante" style="width: 100%; height: 100%; object-fit: cover;">
+        <div class="card-body">
+            <h2 class="card-title">Nuestros platos</h2>
+            <p class="card-text">Nuestros platos son una celebración de la cocina gourmet, elaborados con ingredientes frescos y de alta calidad. Cada creación combina sabores únicos y presentaciones artísticas, ofreciendo una experiencia gastronómica inigualable.</p>
+            <a href="pages/carta.html" class="btn btn-primary btn-custom">Ir a la carta</a>
+        </div>
+    </div>
+    
+    <div class="card custom-card" style="width: 45rem;">
+        <img src="img/tragosResto.jpg" class="card-img-top" alt="Tragos del restaurante" style="width: 100%; height: 100%; object-fit: cover;">
+        <div class="card-body">
+            <h2 class="card-title">Nuestros tragos</h2>
+            <p class="card-text">Nuestros tragos son una experiencia refrescante y sofisticada, creados por expertos mixólogos que utilizan ingredientes premium y técnicas innovadoras. Desde clásicos atemporales hasta cócteles de autor, cada bebida está diseñada para complementar perfectamente nuestros platos.</p>
+            <a href="pages/carta.html" class="btn btn-primary btn-custom">Ir a la carta</a>
+        </div>
+    </div>
+    
+</main>        
 </section>
 
     <footer>
@@ -58,6 +72,7 @@
     <script>
         AOS.init();
       </script>
+      <script src="/Js/web.js"></script>
 </body>
 
 </html>

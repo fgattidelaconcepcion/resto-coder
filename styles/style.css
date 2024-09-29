@@ -198,6 +198,26 @@ body {
   position: relative;
 }
 
+.card {
+  margin: 0 auto 20px;
+  width: 100%;
+  max-width: 45rem;
+  padding: 20px;
+}
+.card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.card .card-text {
+  color: #000;
+}
+
+.card .btn-custom {
+  padding: 0.5rem 1rem;
+  font-size: 1.1rem;
+}
+
 @media (min-width: 1024px) {
   .logo {
     width: 40%;
@@ -248,6 +268,11 @@ body {
   p, label {
     font-size: 1rem;
   }
+  .card {
+    max-width: 80%;
+    margin: 0 auto 20px;
+    padding: 10px;
+  }
 }
 @media (max-width: 480px) {
   header {
@@ -279,6 +304,11 @@ body {
   }
   p, label {
     font-size: 0.9rem;
+  }
+  .card {
+    max-width: 100%;
+    margin: 0 auto 10px;
+    padding: 5px;
   }
   footer iframe {
     width: 100%;
