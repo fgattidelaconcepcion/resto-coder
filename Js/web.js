@@ -105,14 +105,14 @@ const tirarDadoX=(caras)=>{
 
  console.log(sumar(7, 8)); // Esto imprimirá 15
  
-
+//////////////////////////////////////////////////////////////////////////////////
  const producto = { id: 1, nombre: "Arroz" }; // Creo un objeto
  const alacena = [producto, { id: 2, nombre: "Azucar" }]; // Creo un array de objetos
  alacena.push({ id: 3, nombre: "Cafe" }); //Agrego al array objeto numero tresa
  
  const nombres = alacena.map(item => item.nombre); // Extraer los nombres
  console.log(nombres.join("-")); // Unir los nombres con "-"
- 
+ //////////////////////////////////////////////////////////
 
  const productos = []; // creamos un array vacio 
 
@@ -133,4 +133,54 @@ while (continuar) {
 
 const nombres = productos.map(item => item.nombre);
 console.log(nombres.join("-")); // Separamos los nombres con guion 
-*/
+////////////////////////////////////////////////////////////////////////////
+const heladera = [];
+
+const producto = { cantidad: 2 ,nombre: 'Manteca'};
+const productoDos = {cantidad: 1, nombre: 'Agua'}
+const productoTres = {cantidad: 5, nombre: 'Leche'}
+const productoCuatro = {cantidad: 2, nombre: 'Crema'}
+heladera.push(producto);
+heladera.unshift(productoDos);//Agregamos el producto al principio del array.
+heladera.unshift(productoCuatro);
+heladera.push(productoTres);
+const nombres = heladera.map(item => item.nombre);
+console.log(nombres.join(':::'));
+
+heladera.shift();
+
+console.log(heladera);
+*/////////////////////////////////////////////////////////////////////
+/*
+const animales = [];
+
+const agregarAnimales = () => {
+  const razaAnimal = prompt('Ingrese la raza del animal');
+  const nombreAnimal = prompt('Ingrese el nombre del animal');
+
+  const animal = { raza: razaAnimal, nombre: nombreAnimal };
+  animales.push(animal);
+}
+
+let continuar = true;
+
+while (continuar) {
+  agregarAnimales();
+  continuar = confirm("¿Desea agregar otro animal?"); 
+}
+
+const nombres = animales.map(item => item.nombre);
+console.log(nombres.join("-"));
+*/////////////////////////////////////////////////////////////////////
+
+const animales = [
+  {raza: 'Perro' , nombre: 'Miseria'},
+  {raza: 'Gato' , nombre: 'Firulais'},
+  {raza: 'Loro', nombre: 'Pluma'},
+  {raza: 'Tortuga' , nombre: 'Flash'},
+  {raza: 'Tiburon', nombre: 'Dientes'},
+]
+
+for (const animal of animales ){
+  console.table(animales);
+}
