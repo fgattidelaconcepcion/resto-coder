@@ -112,24 +112,25 @@ const tirarDadoX=(caras)=>{
  
  const nombres = alacena.map(item => item.nombre); // Extraer los nombres
  console.log(nombres.join("-")); // Unir los nombres con "-"
-  */
+ 
 
- const productos = [];
+ const productos = []; // creamos un array vacio 
 
 const agregarProducto = () => {
   const id = prompt("Ingrese id del producto");
   const nombre = prompt("Ingrese nombre del producto");
   
   const producto = { id: id, nombre: nombre };
-  productos.push(producto);
-};
+  productos.push(producto); //agrega el producto ingresado al array
+};  //Le pedimos al usuario que ingrese id y nombre para agregar producto al array
 
-let continuar = true;
+let continuar = true; 
 
 while (continuar) {
   agregarProducto();
-  continuar = confirm("¿Desea agregar otro producto?"); // Ask user if they want to continue
+  continuar = confirm("¿Desea agregar otro producto?"); // Preguntamos si quiere ingresar otro porducto
 }
 
 const nombres = productos.map(item => item.nombre);
-console.log(nombres.join("-")); // Display the joined names
+console.log(nombres.join("-")); // Separamos los nombres con guion 
+*/
