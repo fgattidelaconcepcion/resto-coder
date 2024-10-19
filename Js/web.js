@@ -255,7 +255,7 @@ modificarAnimal();
 const animales = [];
 
 const agregarAnimales = () => {
-  const razaAnimal = prompt('Ingrese la raza del animal').trim();   //El método .trim() se utiliza para eliminar los espacios en blanco al principio y al final de una cadena de texto. Esto es útil para asegurarse de que los valores ingresados por el usuario no contengan espacios innecesarios, lo que podría causar problemas al compararlos o almacenarlos.
+  const razaAnimal = prompt('Ingrese la raza del animal').trim(); 
   const nombreAnimal = prompt('Ingrese el nombre del animal').trim();
 
   if (razaAnimal && nombreAnimal) {
@@ -313,7 +313,16 @@ const modificarRazaAnimal = () => {
   }
 };
 
-const main = () => {
+const mostrarAnimales = (animales) => {
+  if (animales.length === 0) {
+    alert('No hay animales en la lista.');
+  } else {
+    const listaAnimales = animales.map(animal => `Raza: ${animal.raza}, Nombre: ${animal.nombre}`).join('\n');
+    alert(`Lista de Animales:\n${listaAnimales}`);
+  }
+};
+
+const app = () => {
   let continuar = true;
 
   while (continuar) {
@@ -333,7 +342,7 @@ const main = () => {
         modificarRazaAnimal();
         break;
       case '5':
-        console.table(animales);
+        mostrarAnimales(animales);
         break;
       case '6':
         continuar = false;
@@ -344,5 +353,6 @@ const main = () => {
   }
 };
 
-main();
-*/////////////////////////////////////////////////////////////////////////////////////////////
+app(); 
+*/
+//////////////////////////////////////////////////////////
