@@ -1,4 +1,4 @@
-const paltos = [];
+const platos = [];
 
 const agregarPlato = () => {
   const nombrePlato = prompt('Ingrese el nombre del plato').trim();
@@ -31,7 +31,7 @@ const modificarPlato = () => {
   if (index !== -1) {
     const nuevoNombre = prompt('Ingrese el nuevo nombre del plato').trim();
     if (nuevoNombre) {
-      plato[index].nombre = nuevoNombre;
+      platos[index].nombre = nuevoNombre;
       alert('Plato modificado con éxito');
     } else {
       alert('El nuevo nombre no puede estar vacío');
@@ -67,7 +67,7 @@ const app = () => {
         modificarPlato();
         break;
       case '4':
-        mostrarAnimales(platos);
+        mostrarPlatos(platos);
         break;
       case '5':
         continuar = false;
