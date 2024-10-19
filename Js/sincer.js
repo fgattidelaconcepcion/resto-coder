@@ -46,7 +46,7 @@ const mostrarPlatos = (platos) => {
     alert('No hay platos en la lista.');
   } else {
     const listaPlatos = platos.map(plato => `Nombre: ${plato.nombre}`).join('\n'); //map()crea un nuevo array de strings que contiene los nombres de todos los platos, cada uno precedido por la palabra "Nombre: ".
-    alert(`Lista de Platos:\n${listaPlatos}`);
+    alert(`Lista de platos:\n${listaPlatos}`);
   }
 };
 
