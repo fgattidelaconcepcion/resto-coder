@@ -354,5 +354,499 @@ const app = () => {
 };
 
 app(); 
-*/
+
+
+/*Constructores usando clases = class.*/ 
+
+/*const usuarios = [];
+
+class Usuario {
+  static contador = 0 //Metodo estatico de la clase , en este caso cada vez que se cree un usuario , el contador aumenta en 1. Se puede usar tambien en funciones o para guardar informacion que siempre va a ser la misma.
+  constructor(nombre, edad){
+    this.nombre = nombre;
+    this.edad = edad;
+    this.login = false;
+    Usuario.contador++;
+  }
+  saludar = function() {
+    console.log (`Hola, bienvenido/a ${this.nombre}`);                              //Esta es la forma correcta de crear Objetos.
+  }
+  mostrarDatos() {
+    return `Nombre: ${this.nombre} | Edad: ${this.edad} | Estado: ${this.login ? 'Conectado' : 'Desconectado'}`; //Esto es un ternario
+  }
+}
+
+
+const usuarioCero = new Usuario('Franco',27);
+
+function agregarUsuarios (nombre,edad){
+  usuarios.push(new Usuario(nombre,edad))
+}
+
+//console.log(usuarioCero);
+
+//usuarioCero.saludar();
+
+//usuarioCero.mostrarDatos();
+
+agregarUsuarios('Diego' , 35);
+agregarUsuarios('Patricia' , 37);
+agregarUsuarios('Sandra' , 62);
+  
+usuarios[1].login = true;
+
+console.table(usuarios);
+
+
+function mostrarUsuarios() {
+  let texto = 'El listado de usuarios es:\n';
+  for (const usuario of usuarios) {
+    // Llama al método de cada instancia
+    texto += usuario.mostrarDatos() + '\n'; 
+  }
+  return texto;
+}
+
+console.log(mostrarUsuarios());
+
+console.log(Usuario.contador);
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+ //Getters y setters:
+ /*
+ class Person{
+  #firstName;
+  #lastName;
+  #age;
+  #interaction;
+  constructor(age, firstName, lastName){
+      this.#firstName = firstName;
+      this.#lastName = lastName;
+      this.#age = age;
+      this.#interaction = 0;
+  }
+  stringValidator(string){
+      const noSpaceString = string.replace(/\s/g, '' ) //Esto es una expresion regular
+      const isString = typeof string === "string"
+      const isntEmpty = noSpaceString !== ""
+      // console.log(isntEmpty)
+      return isString && isntEmpty
+  }
+  // getter, nombre como si fuese propiedad, muchas veces con get adelante
+  get firstName(){
+      this.#interaction++
+      return this.#firstName
+  }
+  set setFirstName(string){
+      this.#interaction++
+      if(this.stringValidator(string)){
+          this.#firstName = string
+      } else {
+          console.warn("El name tiene que ser un string no vacío")
+      }
+  }
+  get lastName(){
+      this.#interaction++
+      return this.#lastName
+  }
+  set setLastName(string){
+      this.#interaction++
+      if(this.stringValidator(string)){
+          this.#lastName = string
+      }
+  }
+  get fullName(){
+      this.#interaction++
+      return this.#lastName + ", " + this.#firstName 
+  }
+  get age(){
+      this.#interaction++
+      return this.#age
+  }
+  set setAge(years){
+      this.#interaction++
+      const toInterger = parseInt(years)
+      const isNumber = (typeof years !=="number")&&(!isNan(toInterger))
+      const validNumber = years >= 0 
+      const isntInfinite = years !== Infinity
+
+      if(!isNumber){
+          console.warn("Age must be a number")
+      }
+      if(!validNumber){
+          console.warn("Age must be a number equal or greater to 0")
+      }
+      if(!isntInfinite){
+          console.warn("Age cant be Infinity")
+      }
+      if(isNumber && validNumber && isntInfinite){
+          this.#age = toInterger
+      }
+  }
+  get interaction(){
+      return this.#interaction
+  }
+}
+
+const juan = new Person(20, "Juan", "Lopez") 
+console.log(juan)
+// console.log(juan.#firstName)
+console.log(juan.firstName)
+console.log(juan.fullName)
+console.log(juan.interaction)
+
+juan.setFirstName = ""
+juan.setFirstName = "Ramiro"
+
+console.log(juan.firstName)
+
+
+/* 
+console.log(juan.firstName) // use getter
+console.log(juan.fullName) // use getter
+
+console.log(juan.setFirstName="")
+// console.log(juan)
+juan.setFirstName= "Pedro"
+console.log(juan)
+
+console.log(juan.interaction) */
+
+// getter se usa para acceder a props privadas y/o cuando se quiere hacer logica extra al acceder a una propiedad
+/////////////////////////////////////////////////////////////////////////////////
+
+
+//const numero = 99;
+
+//localStorage.setItem('numeroFavorito',numero); // Asi se guarda el numero en localStorege.
+
+//const numeroObtenido = localStorage.getItem ("numeroFavorito"); //Asi se obtiene el numero anterior guardado.
+
+
+
+//console.log(numeroObtenido);////////////
+
+//localStorage.setItem ('usuarios',usuarios);
+/*
+const usuarios = [];
+
+class Usuario {
+  static contador = 0;
+
+  constructor(nombre, edad, login = false) {
+    this.nombre = nombre;
+    this.edad = edad;
+    this.login = login;
+    Usuario.contador++;
+  }
+
+  saludar() {
+    console.log(`Hola, bienvenido/a ${this.nombre}`);
+  }
+
+  mostrarDatos() {
+    return `Nombre: ${this.nombre} | Edad: ${this.edad} | Estado: ${this.login ? 'Conectado' : 'Desconectado'}`;
+  }
+}
+
+function agregarUsuarios(nombre, edad, login) {
+  usuarios.push(new Usuario(nombre, edad, login));
+}
+
+// Agregando usuarios
+agregarUsuarios('Diego', 35, true);
+agregarUsuarios('Patricia', 37, false);
+agregarUsuarios('Sandra', 62, false);
+
+usuarios[1].login = true;
+
+console.table(usuarios);
+
+function mostrarUsuarios() {
+  let texto = 'El listado de usuarios es:\n';
+  for (const usuario of usuarios) {
+    texto += usuario.mostrarDatos() + '\n';
+  }
+  return texto;
+}
+
+console.log(mostrarUsuarios());
+console.log(Usuario.contador);
+
+// Función para guardar usuarios en localStorage
+function guardarUsuarios() {
+  const usuariosJSON = JSON.stringify(usuarios);
+  localStorage.setItem('usuarios', usuariosJSON);
+}
+
+// Función para eliminar usuarios de localStorage
+function eliminarUsuarios() {
+  localStorage.removeItem('usuarios');
+}
+
+// Función para obtener y crear usuarios desde localStorage
+function obtenerUsuarios() {
+  const usuariosObtenidos = localStorage.getItem('usuarios');
+  if (usuariosObtenidos) {
+    const usuariosParseados = JSON.parse(usuariosObtenidos);
+    // Crear nuevas instancias de Usuario
+    for (const usuario of usuariosParseados) {
+      agregarUsuarios(usuario.nombre, usuario.edad, usuario.login);
+    }
+  }
+}
+
+// Guardar usuarios en localStorage
+eliminarUsuarios(); // Primero eliminamos cualquier usuario anterior
+guardarUsuarios(); // Luego guardamos los nuevos usuarios
+
+// Recuperar usuarios de localStorage
+obtenerUsuarios(); // Obtén los usuarios y crea instancias
+
+console.log(usuarios); // Esto mostrará los usuarios recuperados
+console.log(mostrarUsuarios()); // Esto mostrará los datos de los usuarios, con métodos disponibles
+
+// Para verificar que los métodos funcionan, prueba llamarlos directamente
+usuarios.forEach(usuario => {
+  usuario.saludar(); // Esto debería funcionar
+  console.log(usuario.mostrarDatos()); // Esto también debería funcionar
+});
+*/////////////////////////////////////////////////////////////////////////////////////////////////
+
+//Funciones del orden superior y recursividad 
+
+/*class Dado {
+  constructor (lados){
+    this.lados = lados;
+  }
+  roll(){
+    return Math.floor((Math.random()*this.lados)+1);
+  }
+}
+
+const d12 = new Dado(12);
+console.log(d12.roll());
+
+const factorial  = (numero) =>{
+  if(numero <=1){
+    return 1
+  }
+    return numero*factorial(numero -1)
+  }
+console.log(factorial(6));
+
+/////////////////////////////////////////////////////////////
+const IVA = 1.21
+const numeros = [12,24,26,34,18]
+
+function paraCada(proceso,lista){
+  for (let i=0; i<lista.length; i++){
+    proceso (lista[i])
+  }
+}
+
+function mostrarConIva(numero){
+  console.log(`Èl numero ${numero} con IVA es ${numero*IVA}`);
+}
+
+function porDos(numero){
+ console.log(numero*2);
+}
+
+//paraCada(porDos,numeros);
+//paraCada(mostrarConIva,numeros);
+numeros.forEach(porDos);
+
+
+numeros.forEach((elemento,indice)=>{
+  console.log(indice);
+  console.log(elemento);
+  console.log(elemento*indice);
+})*/
 //////////////////////////////////////////////////////////
+/*class Usuario {
+  constructor(nombre, edad, login) {
+    this.nombre = nombre;
+    this.edad = edad;
+    this.login = login;
+  }
+
+  // Mover el método mostrarDatos dentro de la clase Usuario
+  mostrarDatos() {
+    return `Nombre: ${this.nombre} | Edad: ${this.edad} | Estado: ${this.login ? 'Conectado' : 'Desconectado'}`;
+  }
+}
+
+const usuarios = [];
+
+function agregarUsuarios(nombre, edad, login) {
+  usuarios.push(new Usuario(nombre, edad, login));
+}
+
+function mostrarUsuarios() {
+  let texto = 'El listado de usuarios es:\n';
+  for (const usuario of usuarios) {
+    texto += usuario.mostrarDatos() + '\n';  
+  }
+  return texto;
+}
+
+agregarUsuarios('Franco', 26, true);
+agregarUsuarios('Pepe', 20, true);
+agregarUsuarios('Diego', 24, false);
+agregarUsuarios('Francisco', 21, true);
+agregarUsuarios('Felipe', 18, false);
+
+//console.log(mostrarUsuarios());
+
+//console.log(usuarios.find(usuario => usuario.nombre === 'Pepe')); 
+
+//console.log(usuarios.filter(usuario => usuario.edad >=18));
+//console.log(usuarios.filter(usuario => usuario.login));
+
+
+//console.log(usuarios.some(usuario => usuario.edad >=18));
+//console.log(usuarios.some(usuario => usuario.login));
+
+/*const productos = [{nombre:'Papa', precio:54},{nombre:'Boñato', precio:40},{nombre:'Pera', precio:45},{nombre:'Papa', precio:74}];
+const productosIva = productos.map(producto =>{              //El map es un calco del array pero no lo modifica, para que no lo modifique usamos JSON. Este caso es para objetos.
+const productoTemporal = JSON.parse(JSON.stringify(producto));
+productoTemporal.precio *= 1.21
+return productoTemporal;
+})*/
+
+//console.log(productosIva);
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+/*
+const numeros = [12,24,26,34,18];  
+
+const numerosDobles = numeros.map(x=>x*2);    //Esto es en el caso de un array.
+//console.log(numerosDobles);
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+const carrito = [];
+
+const productos = [
+  { nombre: 'Producto 1', precio: 100 },
+  { nombre: 'Producto 2', precio: 200 },
+  { nombre: 'Producto 3', precio: 300 },
+  { nombre: 'Producto 4', precio: 400 },
+  { nombre: 'Producto 5', precio: 500 },
+  { nombre: 'Producto 6', precio: 600 },
+];
+
+function agregarCarrito(elemento, cantidad){
+  const temporal = JSON.parse(JSON.stringify(elemento));
+  temporal.cantidad = cantidad;
+  carrito.push(temporal);
+}
+
+agregarCarrito(productos[2], 3);
+agregarCarrito(productos[1], 4);
+agregarCarrito(productos[5], 2);
+
+//console.log(carrito);
+
+const total = carrito.reduce((acumulador,producto) => {
+  return acumulador + producto.cantidad * producto.precio
+}, 0);
+
+//console.log(total);
+
+//////////////////////////////////////////////////////////////////////
+const ordename = [2,11,24,35,18,23];
+
+ordename.sort();
+
+console.log(ordename);
+
+ordename.sort((primero, segundo) => primero - segundo); // De esta manera los numeros se ordenan de menor a mayor.
+
+console.log(ordename);
+
+ordename.sort((primero, segundo) => segundo - primero); // De esta manera los numeros se ordenan de mayor a menor.
+
+console.log(ordename);
+
+////////////////////////////////////////////////////
+//Ejemplo de ordenar usuarios.
+
+class Usuario {
+  constructor(nombre, edad, login) {
+    this.nombre = nombre;
+    this.edad = edad;
+    this.login = login;
+  }
+
+  // Mover el método mostrarDatos dentro de la clase Usuario
+  mostrarDatos() {
+    return `Nombre: ${this.nombre} | Edad: ${this.edad} | Estado: ${this.login ? 'Conectado' : 'Desconectado'}`;
+  }
+}
+
+const usuarios = [];
+
+function agregarUsuarios(nombre, edad, login) {
+  usuarios.push(new Usuario(nombre, edad, login));
+}
+
+function mostrarUsuarios() {
+  let texto = 'El listado de usuarios es:\n';
+  for (const usuario of usuarios) {
+    texto += usuario.mostrarDatos() + '\n';  
+  }
+  return texto;
+}
+
+agregarUsuarios('Franco', 26, true);
+agregarUsuarios('Pepe', 20, true);
+agregarUsuarios('Diego', 24, false);
+agregarUsuarios('Francisco', 21, true);
+agregarUsuarios('Felipe', 18, false);
+
+
+usuarios.sort((primer, segundo)=>{
+ if(primer.login){
+  return -1;
+ } else if (segundo.login){    // De esta manera se ordenan los usuarios primeros los logeados y despues los que no estan logeados(-1 y 0 los deja en el lugar y 1 los cambia de lugar).
+  return 1;
+ }else {
+  return 0;
+ }
+})
+
+console.log(usuarios);
+*/////////////////////////////////////////////////////////////////////////////////////////
+//DOM y EVENTOS.
+
+//const home = document.getElementById("home");
+//console.log(home);
+//console.dir(home);
+
+/*
+const presentacion = document.getElementsByClassName("presentacion"); // No muy recomendable!!
+//console.log(presentacion);
+
+const home = document.querySelector("#home.logo");
+//console.log(home);
+
+const principal =  document.querySelector("#principal.principal");
+console.log(principal);
+
+console.log(principal.innerHTML);
+console.log(principal.innerText);
+console.log(principal.textContent);
+
+
+principal.textContent = "Sincer comida y tragos";
+principal.textContent = "Sincer food & drinks";
+
+//principal.innerHTML = "<button>HOla</button>"; //Creamos boton mediante el DOM.
+
+//console.log(principal.className);
+//console.log(principal.classList);
+
+const botonAceptar = document.querySelector('#btnR.btn-dark');
+
+console.log(botonAceptar);
+*/

@@ -1,4 +1,4 @@
-const platos = [];
+/*const platos = [];
 
 const agregarPlato = () => {
   const nombrePlato = prompt('Ingrese el nombre del plato').trim();  //El método trim() elimina los espacios en blanco al principio y al final de una cadena de texto.
@@ -54,7 +54,7 @@ const app = () => {
   let continuar = true;
 
   while (continuar) {
-    const opcion = prompt('Seleccione una opción:\n1)Agregar plato\n2)Eliminar plato\n3)Modificar plato\n4)Ver Platos\n5) Salir');
+    const opcion = prompt('Seleccione una opción:\n1)Agregar plato\n2)Eliminar plato\n3)Modificar plato\n4)Ver platos\n5) Salir');
     
     switch (opcion) {
       case '1':
@@ -79,3 +79,4 @@ const app = () => {
 };
 
 app(); //Controla el bucle para que el usuario pueda seleccionar las opciones.
+*/
