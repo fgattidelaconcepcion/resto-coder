@@ -14,6 +14,12 @@ class Reserva {
 
 let listaReservas = []; // Inicializo un arreglo para almacenar las reservas
 
+
+function mostrarReservas() {
+    // Muestro todas las reservas en la consola
+    console.log(listaReservas.map(reserva => reserva.imprimirReserva()).join('\n'));
+}
+
 // Cargar reservas del local storage al iniciar
 function cargarReservasDesdeLocalStorage() {
     const reservasGuardadas = localStorage.getItem('reservas'); // Intento obtener las reservas guardadas en localStorage
@@ -28,11 +34,6 @@ function cargarReservasDesdeLocalStorage() {
 function guardarReservasEnLocalStorage() {
     // Serializo la lista de reservas y la guardo en localStorage
     localStorage.setItem('reservas', JSON.stringify(listaReservas));
-}
-
-function mostrarReservas() {
-    // Muestro todas las reservas en la consola
-    console.log(listaReservas.map(reserva => reserva.imprimirReserva()).join('\n'));
 }
 
 function agregarReserva(cantidadClientes, fecha, hora) {
